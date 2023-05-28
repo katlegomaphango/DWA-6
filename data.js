@@ -25441,9 +25441,9 @@ export const html = {
     }
   },
   list: {
-    data_items: document.querySelector('[data-list-items]'),
-    data_button: document.querySelector('[data-list-button]'),
-    data_message: document.querySelector('[data-list-message]'),
+    items: document.querySelector('[data-list-items]'),
+    button: document.querySelector('[data-list-button]'),
+    message: document.querySelector('[data-list-message]'),
   },
   search: {
     search: document.querySelector('[data-header-search]'),
@@ -25452,6 +25452,7 @@ export const html = {
     form: document.querySelector('[data-search-form]'),
     cancel: document.querySelector('[data-search-cancel]'),
     overlay: document.querySelector('[data-search-overlay]'),
+    title: document.querySelector('[data-search-title]'),
   },
   summary: {
     active: document.querySelector('[data-list-active]'),
