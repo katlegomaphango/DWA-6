@@ -27,35 +27,25 @@ for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
 
 html.list.items.appendChild(starting)
 
-const genreHtml = document.createDocumentFragment()
-const firstGenreElement = document.createElement('option')
-firstGenreElement.value = 'any'
-firstGenreElement.innerText = 'All Genres'
-genreHtml.appendChild(firstGenreElement)
+const populateDropDown = (DropDownElement, DropDownName, dataObject) => {
+    const generateHtml = document.createDocumentFragment()
+    const firstElement = document.createElement('option')
+    firstElement.value = 'any'
+    firstElement.innerText = `All ${DropDownName}`
+    generateHtml.appendChild(firstElement)
 
-for (const [id, name] of Object.entries(genres)) {
-    const element = document.createElement('option')
-    element.value = id
-    element.innerText = name
-    genreHtml.appendChild(element)
+    for (const [ id, name ] of Object.entries(dataObject)) {
+        const element = document.createElement('option')
+        element.value = id
+        element.innerText = name
+        generateHtml.appendChild(element)
+    }
+
+    DropDownElement.appendChild(generateHtml)
 }
 
-html.search.genres.appendChild(genreHtml)
-
-const authorsHtml = document.createDocumentFragment()
-const firstAuthorElement = document.createElement('option')
-firstAuthorElement.value = 'any'
-firstAuthorElement.innerText = 'All Authors'
-authorsHtml.appendChild(firstAuthorElement)
-
-for (const [id, name] of Object.entries(authors)) {
-    const element = document.createElement('option')
-    element.value = id
-    element.innerText = name
-    authorsHtml.appendChild(element)
-}
-
-html.search.authors.appendChild(authorsHtml)
+populateDropDown(html.search.genres, 'Genres', genres)
+populateDropDown(html.search.authors, 'Authors', authors)
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     html.theme.settings_theme.value = 'night'
