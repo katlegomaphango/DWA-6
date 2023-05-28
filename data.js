@@ -1,6 +1,9 @@
-// @ts-check
+
 export const BOOKS_PER_PAGE = 36;
 
+/**
+ * Authors object with AuthorID as Keys and Author Names as Values
+ */
 export const authors = {
   "194e164b-9365-4358-b44a-f28a93cc528f": "Steven D. Levitt",
   "76e8065c-fd7a-4a8b-a8ea-6105a47d0781": "Stephen J. Dubner",
@@ -91,6 +94,9 @@ export const authors = {
   "37018341-31f4-4ffa-8755-a49979c218dd": "Suzanne Collins"
 }
 
+/**
+ * Genres object with GenreID as Keys and Genre Names as Values
+ */
 export const genres = {
   "a4f80b3e-3e96-4266-b729-e09b71793182": "Economics",
   "6dd5bb6e-0172-4d6e-aa18-26f00954dd7a": "Non-fiction",
@@ -25411,3 +25417,50 @@ export const books = [
     "author": "8e7083f4-7613-4872-a21b-62fbe33fe180"
   }
 ]
+
+/**
+ * An object literal that contains references to all the HTML elements
+ * referenced through the operation of the app either upon initialization or
+ * while its running (via event listeners). This ensure that all UI elements can
+ * be accessed and seen in a structured manner in a single data structure.
+ */
+export const html = {
+  theme: {
+    settings_theme: document.querySelector('[data-settings-theme]'),
+    settings_header: document.querySelector('[data-header-settings]'),
+    settings_cancel: document.querySelector('[data-settings-cancel]'),
+    settings_form: document.querySelector('[data-settings-form]'),
+    overlay: document.querySelector('[data-settings-overlay]'),
+    day: {
+      dark: '10, 10, 20',
+      light: '255, 255, 255',
+    },
+    night: {
+      dark: '255, 255, 255',
+      light: '10, 10, 20',
+    }
+  },
+  list: {
+    data_items: document.querySelector('[data-list-items]'),
+    data_button: document.querySelector('[data-list-button]'),
+    data_message: document.querySelector('[data-list-message]'),
+  },
+  search: {
+    search: document.querySelector('[data-header-search]'),
+    genres: document.querySelector('[data-search-genres]'),
+    authors: document.querySelector('[data-search-authors]'),
+    form: document.querySelector('[data-search-form]'),
+    cancel: document.querySelector('[data-search-cancel]'),
+    overlay: document.querySelector('[data-search-overlay]'),
+  },
+  summary: {
+    active: document.querySelector('[data-list-active]'),
+    blur: document.querySelector('[data-list-blur]'),
+    image: document.querySelector('[data-list-image]'),
+    title: document.querySelector('[data-list-title]'),
+    subtitle: document.querySelector('[data-list-subtitle]'),
+    description: document.querySelector('[data-list-description]'),
+    close: document.querySelector('[data-list-close]'),
+  },
+  backdrop: document.querySelector('.backdrop')
+}
