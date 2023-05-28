@@ -27,25 +27,8 @@ for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
 
 html.list.items.appendChild(starting)
 
-const populateDropDown = (DropDownElement, DropDownName, dataObject) => {
-    const generateHtml = document.createDocumentFragment()
-    const firstElement = document.createElement('option')
-    firstElement.value = 'any'
-    firstElement.innerText = `All ${DropDownName}`
-    generateHtml.appendChild(firstElement)
-
-    for (const [ id, name ] of Object.entries(dataObject)) {
-        const element = document.createElement('option')
-        element.value = id
-        element.innerText = name
-        generateHtml.appendChild(element)
-    }
-
-    DropDownElement.appendChild(generateHtml)
-}
-
-populateDropDown(html.search.genres, 'Genres', genres)
-populateDropDown(html.search.authors, 'Authors', authors)
+html.search.populateDropDown(html.search.genres, 'Genres', genres)
+html.search.populateDropDown(html.search.authors, 'Authors', authors)
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     html.theme.settings_theme.value = 'night'
