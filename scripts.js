@@ -49,11 +49,11 @@ html.list.button.innerHTML = `
 `
 
 html.search.cancel.addEventListener('click', () => {
-    html.search.overlay.style.display.open = false
+    html.search.overlay.open = false
 })
 
 html.theme.settings_cancel.addEventListener('click', () => {
-    html.theme.overlay.style.display.open = false
+    html.theme.overlay.open = false
 })
 
 html.search.search.addEventListener('click', () => {
