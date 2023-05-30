@@ -9,7 +9,7 @@ As always, it is essential to note that you will be required to talk about the â
 ## Getting Started: 
 1. Clone repo
 ```
-git clone https://github.com/schalkventer/schalkventer.git
+git clone https://github.com/katlegomaphango/DWA-6.git
 ```
-3. Run localhost server
-4. Open index.html
+2. Run localhost server
+3. Open index.html
