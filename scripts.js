@@ -30,6 +30,10 @@ html.list.items.appendChild(starting)
 html.search.populateDropDown(html.search.genres, 'Genres', genres)
 html.search.populateDropDown(html.search.authors, 'Authors', authors)
 
+/**
+ * Function that sets the app theme property
+ * @param {string} theme - string theme you want to set
+ */
 const setThemeProperty = (theme) => {
     if(theme === 'night') {
         document.documentElement.style.setProperty('--color-dark', html.theme.night.dark);
