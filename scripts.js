@@ -30,14 +30,22 @@ html.list.items.appendChild(starting)
 html.search.populateDropDown(html.search.genres, 'Genres', genres)
 html.search.populateDropDown(html.search.authors, 'Authors', authors)
 
+const setThemeProperty = (theme) => {
+    if(theme === 'night') {
+        document.documentElement.style.setProperty('--color-dark', html.theme.night.dark);
+        document.documentElement.style.setProperty('--color-light', html.theme.night.light);
+    } else {
+        document.documentElement.style.setProperty('--color-dark', html.theme.day.dark);
+        document.documentElement.style.setProperty('--color-light', html.theme.day.light);
+    }
+}
+
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     html.theme.settings_theme.value = 'night'
-    document.documentElement.style.setProperty('--color-dark', html.theme.night.dark);
-    document.documentElement.style.setProperty('--color-light', html.theme.night.light);
+    setThemeProperty('night')
 } else {
     html.theme.settings_theme.value = 'day'
-    document.documentElement.style.setProperty('--color-dark', html.theme.day.dark);
-    document.documentElement.style.setProperty('--color-light', html.theme.day.light);
+    setThemeProperty('day')
 }
 
 html.list.button.innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
@@ -74,13 +82,7 @@ html.theme.settings_form.addEventListener('submit', (event) => {
     const formData = new FormData(event.target)
     const { theme } = Object.fromEntries(formData)
 
-    if (theme === 'night') {
-        document.documentElement.style.setProperty('--color-dark', html.theme.night.dark)
-        document.documentElement.style.setProperty('--color-light', html.theme.night.light)
-    } else {
-        document.documentElement.style.setProperty('--color-dark', html.theme.day.dark)
-        document.documentElement.style.setProperty('--color-light', html.theme.day.light)
-    }
+    setThemeProperty(theme)
     
     html.theme.overlay.open = false
 })
