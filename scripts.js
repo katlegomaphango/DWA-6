@@ -52,13 +52,18 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     setThemeProperty('day')
 }
 
-html.list.button.innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
-html.list.button.disabled = (matches.length - (page * BOOKS_PER_PAGE)) > 0
+const updateListBtn = (books, matches, page, booksPerPage) => {
+    html.list.button.innerText = `Show more (${books.length - booksPerPage})`
+    console.log(matches.length - (page * booksPerPage))
+    html.list.button.disabled = (matches.length - (page * booksPerPage)) < 0
 
-html.list.button.innerHTML = `
-    <span>Show more</span>
-    <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
-`
+    html.list.button.innerHTML = `
+        <span>Show more</span>
+        <span class="list__remaining"> (${(matches.length - (page * booksPerPage)) > 0 ? (matches.length - (page * booksPerPage)) : 0})</span>
+    `
+}
+
+updateListBtn(books, matches, page, BOOKS_PER_PAGE)
 
 html.search.cancel.addEventListener('click', () => {
     html.search.overlay.open = false
